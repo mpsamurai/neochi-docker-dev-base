@@ -1,1 +1,4 @@
 numpy
+redis
+requests
+flask
