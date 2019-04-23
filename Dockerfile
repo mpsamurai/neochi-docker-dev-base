@@ -28,11 +28,14 @@ RUN mkdir build
 WORKDIR /tmp/opencv/build
 RUN cmake -D CMAKE_BUILD_TYPE=RELEASE \
         -D CMAKE_INSTALL_PREFIX=/usr/local \
-        -D INSTALL_PYTHON_EXAMPLES=ON \
+        -D INSTALL_PYTHON_EXAMPLES=OFF \
         -D INSTALL_C_EXAMPLES=OFF \
         -D OPENCV_ENABLE_NONFREE=ON \
         -D OPENCV_EXTRA_MODULES_PATH=/tmp/opencv_contrib/modules \
         -D PYTHON2_EXECUTABLE=/usr/bin/python \
         -D PYTHON_EXECUTABLE=/usr/bin/python3 \
-        -D BUILD_EXAMPLES=ON ..
+        -D BUILD_EXAMPLES=OFF ..
 RUN make -j11
+
+WORKDIR /code
+RUN rm -Rf /tmp/*
