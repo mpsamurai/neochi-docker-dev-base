@@ -35,4 +35,4 @@ RUN cmake -D CMAKE_BUILD_TYPE=RELEASE \
         -D PYTHON2_EXECUTABLE=/usr/bin/python \
         -D PYTHON_EXECUTABLE=/usr/bin/python3 \
         -D BUILD_EXAMPLES=ON ..
-RUN make -j4
+RUN make -j11
