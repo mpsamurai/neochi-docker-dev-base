@@ -35,7 +35,13 @@ RUN cmake -D CMAKE_BUILD_TYPE=RELEASE \
         -D PYTHON2_EXECUTABLE=/usr/bin/python \
         -D PYTHON_EXECUTABLE=/usr/bin/python3 \
         -D BUILD_EXAMPLES=OFF ..
-RUN make -j11
+RUN make -j11 && make install && ldconfig
+RUN ln -s /usr/local/python/cv2/python-3.6/cv2.cpython-36m-x86_64-linux-gnu.so /usr/local/python/cv2/python-3.6/cv2.so
 
 WORKDIR /code
 RUN rm -Rf /tmp/*
+
+COPY ./entrypoint.sh /usr/bin/entrypoint.sh
+ENTRYPOINT ["entrypoint.sh"]
+
+CMD ["bash"]
