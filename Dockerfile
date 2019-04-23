@@ -38,7 +38,7 @@ RUN cmake -D CMAKE_BUILD_TYPE=RELEASE \
 RUN make -j11 && make install && ldconfig
 RUN ln -s /usr/local/python/cv2/python-3.6/cv2.cpython-36m-x86_64-linux-gnu.so /usr/local/python/cv2/python-3.6/cv2.so
 
-pip3 install -r requirements.txt
+RUN pip3 install -r requirements.txt
 
 WORKDIR /code
 RUN rm -Rf /tmp/*
