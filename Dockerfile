@@ -14,7 +14,7 @@ RUN apt-get update && \
 
 WORKDIR /tmp
 COPY ./requirements.txt .
-RUN pip3 install -r requirements.txt
+RUN pip3 install numpy
 RUN wget -O opencv.zip https://github.com/opencv/opencv/archive/3.4.4.zip && \
     wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/3.4.4.zip && \
     unzip opencv.zip && \
@@ -37,6 +37,8 @@ RUN cmake -D CMAKE_BUILD_TYPE=RELEASE \
         -D BUILD_EXAMPLES=OFF ..
 RUN make -j11 && make install && ldconfig
 RUN ln -s /usr/local/python/cv2/python-3.6/cv2.cpython-36m-x86_64-linux-gnu.so /usr/local/python/cv2/python-3.6/cv2.so
+
+pip3 install -r requirements.txt
 
 WORKDIR /code
 RUN rm -Rf /tmp/*
