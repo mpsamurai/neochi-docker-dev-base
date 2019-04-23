@@ -13,7 +13,6 @@ RUN apt-get update && \
     apt-get install -y wget
 
 WORKDIR /tmp
-COPY ./requirements.txt .
 RUN pip3 install numpy
 RUN wget -O opencv.zip https://github.com/opencv/opencv/archive/3.4.4.zip && \
     wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/3.4.4.zip && \
@@ -38,10 +37,14 @@ RUN cmake -D CMAKE_BUILD_TYPE=RELEASE \
 RUN make -j11 && make install && ldconfig
 RUN ln -s /usr/local/python/cv2/python-3.6/cv2.cpython-36m-x86_64-linux-gnu.so /usr/local/python/cv2/python-3.6/cv2.so
 
+WORKDIR /tmp
+COPY ./requirements.txt .
 RUN pip3 install -r requirements.txt
 
-WORKDIR /code
 RUN rm -Rf /tmp/*
+
+WORKDIR /code
+COPY ./src /code/
 
 COPY ./entrypoint.sh /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
