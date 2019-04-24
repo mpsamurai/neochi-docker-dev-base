@@ -1,4 +1,6 @@
-FROM ubuntu:18.04
+FROM arm32v7/ubuntu:18.04
+
+COPY qemu-arm-static /usr/bin/qemu-arm-static
 
 RUN apt-get update && \
     apt-get -y upgrade && \
