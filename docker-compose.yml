@@ -7,7 +7,7 @@ services:
       - 6379:6379
   neochi:
     build: .
-    image: neochi-dev-base:20190424
+    image: mpsamurai/neochi-dev-base:20190424
     volumes:
       - ./src:/code
     depends_on:
