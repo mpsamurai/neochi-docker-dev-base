@@ -6,6 +6,7 @@ services:
     ports:
       - 6379:6379
   neochi:
+    build: .
     image: mpsamurai/neochi-dev-base:20190424
     volumes:
       - ./src:/code
