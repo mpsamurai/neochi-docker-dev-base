@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  redis:
+    image: redis
+    ports:
+      - 6379:6379
+  neochi:
+    image: mpsamurai/neochi-dev-base:20190424
+    volumes:
+      - ./src:/code
+      - /usr/bin/qemu-arm-static:/usr/bin/qemu-arm-static
+    depends_on:
+      - redis
