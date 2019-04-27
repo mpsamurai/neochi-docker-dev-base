@@ -54,6 +54,14 @@ docker-compose up
 
 ### x64 Image
 
+If you can not install QEMU on your x64 computer, you can use x64-apline image.
+
 ```bash
 docker pull mpsamurai/neochi-dev-base:20190424-x64
+```
+
+or 
+
+```bash
+docker-compose -f docker-compose-x64-alpine.yml up 
 ```
