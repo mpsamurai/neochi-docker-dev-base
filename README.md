@@ -4,16 +4,23 @@ Neoch-Solver's development environment.
 
 This image works on Raspberry Pi.
 
-You can pull the image from Docker Hub [mpsamurai/neochi-dev-base
-](https://hub.docker.com/r/mpsamurai/neochi-dev-base)
+You can pull the image from Docker Hub [mpsamurai/neochi-dev-base](https://hub.docker.com/r/mpsamurai/neochi-dev-base) and run it on Raspberry Pi.
 
 ```bash
 docker pull mpsamurai/neochi-dev-base:20190424
+docker run -it mpsamurai/neochi-dev-base:20190424
 ```
 
-## Build Image
+If you want run with Redis, you can use docker-compose.
 
-### Build image on Ubuntu
+```bash
+docker-compose -f docker-compose-pi.yml up
+docker-compose -f docker-compose-pi.yml run neochi bash
+```
+
+## Build Image for arm32v6 on Ubuntu and run it on Raspberry Pi
+
+### Build Image for arm32v6 on Ubuntu
 
 You need to install QEMU by using the following commands.
 
@@ -31,7 +38,7 @@ cp /usr/bin/qemu-arm-static .
 docker-compose -f docker-compose-build.yml build
 ```
 
-### Run image on Raspberry Pi
+### Run image for arm32v6 on Raspberry Pi
 
 Clone ```neochi-docker-dev-base``` repository from GitHub on your Pi.
 
@@ -49,7 +56,7 @@ sudo ./docker-installer.sh
 #### Pull and Run image on Pi
 
 ```bash
-docker-compose up
+docker-compose -f docker-compose-pi.yml up
 ```
 
 ### x64 Image
