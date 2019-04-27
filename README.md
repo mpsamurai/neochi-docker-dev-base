@@ -57,3 +57,12 @@ cd neochi-docker-dev-base
 cp /usr/bin/qemu-arm-static .
 docker-compose -f docker-compose-x64.yml build
 ```
+
+## How to construct your own development environment on your x64 PC.
+
+1. Clone a neochi solver's component repository and move to the directory,
+2. Create ```Dockerfile``` and ```.dockerignore``` files,
+3. Set ```mpsamurai/neochi-dev-base:20190424-x64``` as the base image,
+4. Do something necessary in the ```Dockerfile```,
+5. Create ```docker-compose.yml``` like ```docker-compose-x64.yml```,
+6. Build and run it.
