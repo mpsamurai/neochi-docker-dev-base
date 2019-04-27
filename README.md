@@ -1,6 +1,6 @@
 # neochi-docker-dev-base
 
-Neoch-Solver's development environment.
+Neoch-Solver's development environment containing OpenCV, redis-py and flask.
 
 It works both on x64 and Raspberry Pi Zero W.
 
@@ -31,7 +31,7 @@ git clone https://github.com/mpsamurai/neochi-docker-dev-base.git
 cd neochi-docker-dev-base
 sudo ./docker-installer.sh
 ```
-## Build i
+## Build image
 
 ### Build Image for Raspberry Pi on Ubuntu
 
@@ -57,4 +57,3 @@ cd neochi-docker-dev-base
 cp /usr/bin/qemu-arm-static .
 docker-compose -f docker-compose-x64.yml build
 ```
-
