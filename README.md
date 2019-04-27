@@ -8,7 +8,7 @@ You can pull the image from Docker Hub [mpsamurai/neochi-dev-base
 ](https://hub.docker.com/r/mpsamurai/neochi-dev-base)
 
 ```bash
-docker pull mpsamurai/neochi-dev-base
+docker pull mpsamurai/neochi-dev-base:20190424
 ```
 
 ## Build Image
@@ -50,4 +50,10 @@ sudo ./docker-installer.sh
 
 ```bash
 docker-compose up
+```
+
+### x64 Image
+
+```bash
+docker pull mpsamurai/neochi-dev-base:20190424-x64
 ```
