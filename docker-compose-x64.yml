@@ -1,3 +1,4 @@
+
 version: "3"
 
 services:
@@ -6,7 +7,10 @@ services:
     ports:
       - 6379:6379
   neochi:
-    image: mpsamurai/neochi-dev-base:20190424
+    build:
+      context: .
+      dockerfile: Dockerfile-x64
+    image: mpsamurai/neochi-dev-base:20190424-x64
     volumes:
       - ./src:/code
     depends_on:
