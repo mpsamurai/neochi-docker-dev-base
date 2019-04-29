@@ -75,6 +75,7 @@ docker-compose -f docker-compose-x64.yml build
 |   |-- LICENSE
 |   |-- README.md
 |   |-- docker-compose.yml
+|   |-- requirements.txt
 |   `-- src
 |       `-- kinesis
 `-- neochi-core
@@ -120,9 +121,10 @@ services:
       - redis
 ```
 
-### Run nosetests for kinesis
+### Build and run nosetests for kinesis
 
 ```bash
+docker-compose build
 docker-compose run kinesis
 ```
 
