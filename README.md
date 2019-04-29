@@ -67,7 +67,27 @@ docker-compose -f docker-compose-x64.yml build
 5. Create ```docker-compose.yml``` like ```docker-compose-x64.yml```,
 6. Build and run it.
 
-### Example of Dockerfile
+### Example of directory structure
+
+```bash
+|-- kinesis
+|   |-- Dockerfile
+|   |-- LICENSE
+|   |-- README.md
+|   |-- docker-compose.yml
+|   `-- src
+|       `-- kinesis
+`-- neochi-core
+    |-- Dockerfile
+    |-- LICENSE
+    |-- README.md
+    |-- docker-compose.yml
+    |-- requirements.txt
+    `-- src
+        `-- neochi
+```
+
+### Example of Dockerfile in kinesis
 
 ```dockerfile
 FROM mpsamurai/neochi-dev-base:20190424-x64
@@ -78,10 +98,10 @@ RUN pip install --no-cache-dir -r /tmp/requirements.txt && rm /tmp/requirements.
 WORKDIR /code
 COPY ./src:/code
 
-CMD ["nosetests", "--with-coverage", "--cover-html", "--cover-package", "neochi"]
+CMD ["nosetests", "--with-coverage", "--cover-html", "--cover-package", "kinesis"]
 ```
 
-### Example of docker-compose.yml
+### Example of docker-compose.yml in kinesis
 
 ```yaml
 version: "3"
@@ -91,13 +111,18 @@ services:
     image: redis
     ports:
       - 6379:6379
-  neochi:
-    build:
-      context: .
-      dockerfile: Dockerfile-x64
+  kinesis:
+    build: .
     volumes:
       - ./src:/code
-      - /path/to/neochi-core/src/neochi:/code/neochi
+      - ../neochi-core/src/neochi:/code/neochi
     depends_on:
       - redis
 ```
+
+### Run nosetests for kinesis
+
+```bash
+docker-compose run kinesis
+```
+
