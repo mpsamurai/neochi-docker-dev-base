@@ -2,3 +2,5 @@ numpy
 redis
 requests
 flask
+nose
+coverage

@@ -65,4 +65,4 @@ COPY ./src /code/
 COPY ./entrypoint.sh /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
 
-CMD ["bash"]
+CMD ["nosetests", "--with-coverage", "--cover-html", "--cover-package", "neochi"]
