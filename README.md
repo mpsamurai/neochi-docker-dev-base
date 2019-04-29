@@ -66,3 +66,38 @@ docker-compose -f docker-compose-x64.yml build
 4. Do something necessary in the ```Dockerfile```,
 5. Create ```docker-compose.yml``` like ```docker-compose-x64.yml```,
 6. Build and run it.
+
+### Example of Dockerfile
+
+```dockerfile
+FROM mpsamurai/neochi-dev-base:20190424-x64
+
+COPY ./requirements.txt /tmp
+RUN pip install --no-cache-dir -r /tmp/requirements.txt && rm /tmp/requirements.txt
+
+WORKDIR /code
+COPY ./src:/code
+
+CMD ["nosetests", "--with-coverage", "--cover-html", "--cover-package", "neochi"]
+```
+
+### Example of Dockercompose
+
+```yaml
+version: "3"
+
+services:
+  redis:
+    image: redis
+    ports:
+      - 6379:6379
+  neochi:
+    build:
+      context: .
+      dockerfile: Dockerfile-x64
+    volumes:
+      - ./src:/code
+      - /path/to/neochi-core/src/neochi:/code/neochi
+    depends_on:
+      - redis
+```
