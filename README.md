@@ -81,7 +81,7 @@ COPY ./src:/code
 CMD ["nosetests", "--with-coverage", "--cover-html", "--cover-package", "neochi"]
 ```
 
-### Example of Dockercompose
+### Example of docker-compose.yml
 
 ```yaml
 version: "3"
