@@ -33,7 +33,7 @@ RUN pip3 install wheel && \
         -D PYTHON_EXECUTABLE=/usr/bin/python3 \
         -D BUILD_EXAMPLES=OFF opencv && \
     make -j11 && make install && ldconfig && \
-    ln -s /usr/local/python/cv2/python-3.6/cv2.cpython-36m-x86_64-linux-gnu.so /usr/local/python/cv2/python-3.6/cv2.so && \
+    ln -s /usr/local/python/cv2/python-3.5/cv2.cpython-35m-arm-linux-gnueabihf.so /usr/local/python/cv2/python-3.5/cv2.so && \
     rm -Rf /tmp/* && \
     apt-get autoclean
 
