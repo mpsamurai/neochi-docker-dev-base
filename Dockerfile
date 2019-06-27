@@ -51,7 +51,7 @@ RUN apk update && apk upgrade && apk --no-cache add \
         -D OPENCV_EXTRA_MODULES_PATH=/tmp/opencv_contrib/modules \
         -D PYTHON_EXECUTABLE=/usr/local/bin/python \
         -D BUILD_EXAMPLES=OFF opencv &&\
-    make -j11 && make install &&\
+    make -j15 && make install &&\
     ln -s /usr/local/python/cv2/python-3.6/cv2.cpython-36m-x86_64-linux-gnu.so /usr/local/python/cv2/python-3.6/cv2.so && \
     rm -Rf /tmp/*
 
