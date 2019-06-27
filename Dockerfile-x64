@@ -63,4 +63,6 @@ COPY ./src /code/
 COPY ./entrypoint.sh /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
 
+ENV PYTHONUNBUFFERED 1
+
 CMD ["nosetests", "--with-coverage", "--cover-html", "--cover-package", "neochi"]
