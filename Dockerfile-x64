@@ -3,6 +3,7 @@ FROM python:3.6-alpine
 WORKDIR /tmp
 RUN apk update && apk upgrade && apk --no-cache add \
     --virtual=build-dependencies \
+    git \
     build-base \
     clang \
     clang-dev ninja \

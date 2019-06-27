@@ -5,6 +5,7 @@ COPY qemu-arm-static /usr/bin/qemu-arm-static
 WORKDIR /tmp
 RUN apk update && apk upgrade && apk --no-cache add \
     --virtual=build-dependencies \
+    git \
     build-base \
     clang \
     clang-dev ninja \

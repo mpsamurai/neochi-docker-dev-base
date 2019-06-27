@@ -6,6 +6,7 @@ WORKDIR /tmp
 RUN apt-get update && \
     apt-get -y upgrade && \
     apt-get install -y \
+        git \
         python3-dev python3-pip python3-setuptools\
         build-essential cmake unzip pkg-config \
         libjpeg-dev libpng-dev libtiff-dev \
